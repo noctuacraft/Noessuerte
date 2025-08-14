@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No es suerte, es negocio | Concientización sobre apuestas online</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables y reset */
+        :root {
+            --neon-green: #39ff14;
+            --neon-pink: #ff00ff;
+            --neon-blue: #00ffff;
+            --neon-red: #ff073a;
+            --neon-yellow: #fff01f;
+            --dark-bg: #0a0a1a;
+            --darker-bg: #050510;
+            --card-bg: rgba(20, 20, 40, 0.8);
+            --text-light: #f0f0f0;
+            --text-gray: #c0c0c0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 0, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(57, 255, 20, 0.03) 0%, transparent 30%);
+        }
+
+        ::selection {
+          color: rgb(184, 133, 234);
+          background-color: #2b2f67;  
+        }
+        /* Animación de fondo */
+        @keyframes bgPulse {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Estilos generales */
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--neon-pink);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: var(--neon-green);
+            border: 2px solid var(--neon-green);
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 20px 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.3), transparent);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            background: var(--neon-green);
+            color: var(--dark-bg);
+            box-shadow: 0 0 20px var(--neon-green), 0 0 40px var(--neon-green);
+            transform: translateY(-3px);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 0, 255, 0.3);
+        }
+
+        /* Animación de luces */
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.5;
+            }
+        }
+
+        .neon-text {
+            animation: flicker 3s infinite;
+        }
+
+        /* Header y navegación */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: background 0.5s ease;
+        }
+
+        header.scrolled {
+            background: rgba(10, 10, 26, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--neon-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--neon-red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Sección Hero */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 10, 26, 0.9) 0%, rgba(57, 20, 80, 0.7) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 20px;
+            font-size: 4rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: var(--text-light);
+        }
+
+        /* Animación de cartas */
+        .floating-cards {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-card {
+            position: absolute;
+            width: 120px;
+            height: 180px;
+            background: #fff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--neon-red);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform-origin: center;
+            opacity: 0.2;
+        }
+
+        /* Sección Trampa del Juego */
+        #trampa .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255, 0, 255, 0.1);
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--neon-pink);
+            margin: 20px 0;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        /* Animación del ciclo de adicción */
+        .trap-cycle {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .cycle-step {
+            width: 16%;
+            text-align: center;
+            padding: 20px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            position: absolute;
+            animation-duration: 24s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .cycle-step:nth-child(1) { animation-name: cycle1; animation-delay: 0s; }
+        .cycle-step:nth-child(2) { animation-name: cycle2; animation-delay: 4s; }
+        .cycle-step:nth-child(3) { animation-name: cycle3; animation-delay: 8s; }
+        .cycle-step:nth-child(4) { animation-name: cycle4; animation-delay: 12s; }
+        .cycle-step:nth-child(5) { animation-name: cycle5; animation-delay: 16s; }
+        .cycle-step:nth-child(6) { animation-name: cycle6; animation-delay: 20s; }
+
+        .cycle-step i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--neon-pink);
+        }
+
+        @keyframes cycle1 {
+            0%, 100% { left: 0; top: 0; opacity: 0; transform: scale(0.8); }
+            5% { opacity: 1; transform: scale(1); }
+            10%, 15% { left: 15%; top: 0; }
+            20% { left: 30%; top: 0; opacity: 1; }
+            25% { opacity: 0; transform: scale(0.8); }
+        }
+
+        @keyframes cycle2 {
+            0%, 100% { left: 15%; top: 0; opacity: 0; transform: scale(0.8); }
+            5% { opacity: 1; transform: scale(1); }
+            10%, 15% { left: 30%; top: 0; }
+            20% { left: 45%; top: 0; opacity: 1; }
+            25% { opacity: 0; transform: scale(0.8); }
+        }
+
+        @keyframes cycle3 {
+            0%, 100% { left: 30%; top: 0; opacity: 0; transform: scale(0.8); }
+            5% { opacity: 1; transform: scale(1); }
+            10%, 15% { left: 45%; top: 0; }
+            20% { left: 60%; top: 0; opacity: 1; }
+            25% { opacity: 0; transform: scale(0.8); }
+        }
+
+        @keyframes cycle4 {
+            0%, 100% { left: 45%; top: 0; opacity: 0; transform: scale(0.8); }
+            5% { opacity: 1; transform: scale(1); }
+            10%, 15% { left: 60%; top: 0; }
+            20% { left: 75%; top: 0; opacity: 1; }
+            25% { opacity: 0; transform: scale(0.8); }
+        }
+
+        @keyframes cycle5 {
+            0%, 100% { left: 60%; top: 0; opacity: 0; transform: scale(0.8); }
+            5% { opacity: 1; transform: scale(1); }
+            10%, 15% { left: 75%; top: 0; }
+            20% { left: 90%; top: 0; opacity: 1; }
+            25% { opacity: 0; transform: scale(0.8); }
+        }
+
+        @keyframes cycle6 {
+            0%, 100% { left: 90%; top: 0; opacity: 0; transform: scale(0.8); }
+            5% { opacity: 1; transform: scale(1); }
+            10%, 15% { left: 90%; top: 50px; }
+            20% { left: 90%; top: 100px; opacity: 1; }
+            25% { opacity: 0; transform: scale(0.8); }
+        }
+
+        /* Sección Simulador */
+        #simulador {
+            background: var(--darker-bg);
+        }
+
+        .simulator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .simulator-display {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 2px solid var(--neon-yellow);
+            box-shadow: 0 0 20px rgba(255, 240, 31, 0.2);
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .money-display {
+            font-size: 3rem;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-yellow);
+            margin: 20px 0;
+            text-shadow: 0 0 10px var(--neon-yellow);
+        }
+
+        .simulator-message {
+            font-size: 1.3rem;
+            margin: 15px 0;
+            min-height: 40px;
+        }
+
+        .bet-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .bet-btn {
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .bet-btn:hover {
+            background: var(--neon-blue);
+            color: var(--dark-bg);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        .bet-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .bet-btn:disabled:hover {
+            background: rgba(0, 255, 255, 0.1);
+            color: var(--neon-blue);
+            box-shadow: none;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-yellow), var(--neon-red));
+            width: 100%;
+            transition: width 0.5s ease;
+        }
+
+        /* Pantalla de game over */
+        .game-over {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .game-over.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .game-over h2 {
+            font-size: 4rem;
+            color: var(--neon-red);
+            text-shadow: 0 0 20px var(--neon-red);
+            margin-bottom: 20px;
+        }
+
+        .game-over p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Sección Test de Riesgo */
+        #test {
+            background: var(--darker-bg);
+        }
+
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .question {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid var(--neon-green);
+        }
+
+        .options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .option {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .option:hover {
+            background: rgba(57, 255, 20, 0.1);
+            border-color: var(--neon-green);
+        }
+
+        .option.selected {
+            background: rgba(57, 255, 20, 0.2);
+            border-color: var(--neon-green);
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+        }
+
+        .result {
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 30px;
+            display: none;
+        }
+
+        .result.low {
+            background: rgba(57, 255, 20, 0.1);
+            border: 2px solid var(--neon-green);
+        }
+
+        .result.medium {
+            background: rgba(255, 240, 31, 0.1);
+            border: 2px solid var(--neon-yellow);
+        }
+
+        .result.high {
+            background: rgba(255, 7, 58, 0.1);
+            border: 2px solid var(--neon-red);
+        }
+
+        .badge {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .badge.low { color: var(--neon-green); }
+        .badge.medium { color: var(--neon-yellow); }
+        .badge.high { color: var(--neon-red); }
+
+        .advice {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        /* Sección Testimonios */
+        #testimonios {
+            background: var(--darker-bg);
+        }
+
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .testimonial {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 30px;
+            background: rgba(255, 0, 255, 0.05);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease;
+        }
+
+        .testimonial.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .testimonial i {
+            font-size: 3rem;
+            color: var(--neon-pink);
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial .author {
+            color: var(--neon-yellow);
+            font-weight: bold;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+        }
+
+        .testimonial-dot.active {
+            background: var(--neon-pink);
+        }
+
+        /* Sección Video */
+        #video {
+            background: var(--darker-bg);
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-container video {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        /* Sección Recursos */
+        #recursos {
+            background: var(--darker-bg);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            background: rgba(0, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .resource-card i {
+            font-size: 2.5rem;
+            color: var(--neon-blue);
+            margin-bottom: 20px;
+        }
+
+        .resource-card h3 {
+            color: var(--neon-blue);
+            margin-bottom: 15px;
+        }
+
+        /* Sección Descargables */
+        #descargables {
+            background: var(--darker-bg);
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .download-card {
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(255, 240, 31, 0.05);
+            border: 1px solid rgba(255, 240, 31, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 240, 31, 0.1);
+        }
+
+        .download-card i {
+            font-size: 3rem;
+            color: var(--neon-yellow);
+            margin-bottom: 15px;
+        }
+
+        .download-card .btn {
+            margin-top: 15px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Sección Créditos */
+        #creditos {
+            background: var(--darker-bg);
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            padding: 20px;
+        }
+
+
+        /* Footer */
+        footer {
+            background: #050510;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .qr-container {
+            display: inline-block;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f8f8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-green);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .final-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin: 30px auto;
+            max-width: 600px;
+            color: var(--neon-red);
+            text-shadow: 0 0 10px rgba(255, 7, 58, 0.5);
+        }
+
+        /* Botón de sonido */
+        .sound-toggle {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(57, 255, 20, 0.2);
+            border: 2px solid var(--neon-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+        }
+
+        .sound-toggle i {
+            color: var(--neon-green);
+            font-size: 1.5rem;
+        }
+
+        /* Botón de salida difícil */
+        .exit-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 7, 58, 0.2);
+            border: 1px solid var(--neon-red);
+            color: var(--neon-red);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            opacity: 0.3;
+            transition: all 0.5s ease;
+            z-index: 1000;
+        }
+
+        .exit-button:hover {
+            opacity: 1;
+            background: rgba(255, 7, 58, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .trap-cycle {
+                height: 350px;
+            }
+            
+            .cycle-step {
+                width: 45%;
+                animation: none !important;
+                position: relative;
+                margin-bottom: 15px;
+                opacity: 1;
+                transform: scale(1);
+                left: auto !important;
+                top: auto !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content {
+                padding: 0 20px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .testimonial p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .bet-options {
+                flex-direction: column;
+            }
+            
+            .bet-btn {
+                width: 100%;
+            }
+            
+            .options {
+                flex-direction: column;
+            }
+        }
+
+         .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-blue));
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-photo i {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .member-photo.has-image i {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón de sonido -->
+    <div class="sound-toggle" id="soundToggle">
+        <i class="fas fa-volume-mute" id="soundIcon"></i>
+    </div>
+    
+    <!-- Audio de fondo -->
+    <audio id="bgSound" loop>
+        <source src="assets/FondoAudio.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Pantalla de Game Over -->
+    <div class="game-over" id="gameOver">
+        <h2>GAME OVER</h2>
+        <p>Perdiste todo tu dinero, como el 90% de los apostadores reales.</p>
+        <p>Esto no es un juego, es la realidad de la ludopatía.</p>
+        <button class="btn" onclick="closeGameOver()" style="border-color: var(--neon-red); color: var(--neon-red);">Continuar</button>
+    </div>
+
+    <!-- Botón de salida difícil -->
+    <button class="exit-button" onclick="showExitMessage()">
+        <i class="fas fa-door-open"></i> Salir del juego
+    </button>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-dice"></i> NOESSUERTE
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#trampa">La Trampa</a></li>
+                    <li><a href="#simulador">Simulador</a></li>
+                    <li><a href="#test">Test de Riesgo</a></li>
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="#recursos">Ayuda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="hero">
+        <div class="floating-cards">
+            <!-- Las cartas flotantes se generarán con JS -->
+        </div>
+        <div class="hero-content">
+            <h1 class="neon-text">¿CREÉS QUE PODÉS GANARLES?</h1>
+            <p>Ellos ya ganaron. <span class="neon-text">Siempre.</span></p>
+            <div>
+                <a href="#trampa" class="btn">Descubrí la verdad</a>
+                <a href="#test" class="btn" style="border-color: var(--neon-red); color: var(--neon-red);">Test de riesgo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Trampa del Juego -->
+    <section id="trampa">
+        <div class="container">
+            <h2>La Trampa del Juego</h2>
+            <div class="card">
+                <p>Las apuestas online están diseñadas para que pierdas. Comienzas con pequeñas ganancias que te enganchan, pero con el tiempo las probabilidades están matemáticamente en tu contra. Es un ciclo diseñado para generar adicción y deudas.</p>
+                
+                <div class="trap-cycle">
+                    <div class="cycle-step">
+                        <i class="fas fa-coins"></i>
+                        <h3>Ganás</h3>
+                        <p>Pequeñas victorias iniciales que generan euforia</p>
+                    </div>
+                    <div class="cycle-step">
+                        <i class="fas fa-smile"></i>
+                        <h3>Te emocionás</h3>
+                        <p>La dopamina te hace sentir invencible</p>
+                    </div>
+                    <div class="cycle-step">
+                        <i class="fas fa-redo"></i>
+                        <h3>Volvés a apostar</h3>
+                        <p>Buscás repetir la sensación de victoria</p>
+                    </div>
+                    <div class="cycle-step">
+                        <i class="fas fa-sad-tear"></i>
+                        <h3>Perdés</h3>
+                        <p>Las pérdidas superan las ganancias</p>
+                    </div>
+                    <div class="cycle-step">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h3>Pedís plata</h3>
+                        <p>Intentás recuperar lo perdido con más dinero</p>
+                    </div>
+                    <div class="cycle-step">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <h3>Deuda</h3>
+                        <p>El ciclo termina en problemas financieros</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Cifras que alarman</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">63%</div>
+                    <div class="stat-label">de jóvenes entre 18-24 años han apostado online</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">78%</div>
+                    <div class="stat-label">termina con deudas significativas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">45%</div>
+                    <div class="stat-label">reconoce que no puede parar</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">pierde más dinero del que gana</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Testimonios -->
+    <section id="testimonios">
+        <div class="container">
+            <h2>Voces Reales</h2>
+            <p>Testimonios de personas que vivieron la adicción a las apuestas</p>
+            
+            <div class="testimonials-container">
+                <div class="testimonial active">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Perdí todo lo que tenía en dos semanas. Pensé que era un juego, pero se convirtió en una pesadilla."</p>
+                    <div class="author">- Lucas, 24 años</div>
+                </div>
+                
+                <div class="testimonial">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"No era diversión. Era desesperación. Cada pérdida me empujaba a apostar más para recuperarme."</p>
+                    <div class="author">- Sofía, 29 años</div>
+                </div>
+                
+                <div class="testimonial">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Mi vida cambió cuando acepté que tenía un problema. Busqué ayuda y hoy estoy recuperándome."</p>
+                    <div class="author">- Martín, 32 años</div>
+                </div>
+            </div>
+            
+            <div class="testimonial-nav">
+                <div class="testimonial-dot active" onclick="showTestimonial(0)"></div>
+                <div class="testimonial-dot" onclick="showTestimonial(1)"></div>
+                <div class="testimonial-dot" onclick="showTestimonial(2)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Simulador -->
+    <section id="simulador">
+        <div class="container">
+            <h2>Simulador de Apuestas</h2>
+            <p>Experimentá cómo funcionan las probabilidades reales en las apuestas online</p>
+            
+            <div class="simulator-container">
+                <div class="card">
+                    <p>Tenés $1000 ficticios para apostar. Las probabilidades parecen buenas al principio, pero observá qué sucede con el tiempo...</p>
+                </div>
+                
+                <div class="simulator-display">
+                    <div class="money-display">$<span id="money-amount">1000</span></div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar" style="width: 100%"></div>
+                    </div>
+                    <div class="simulator-message" id="simulator-message">¡Empezá a apostar!</div>
+                </div>
+                
+                <div class="bet-options">
+                    <button class="bet-btn" onclick="placeBet(100)">Apostar $100</button>
+                    <button class="bet-btn" onclick="placeBet(200)">Apostar $200</button>
+                    <button class="bet-btn" onclick="placeBet(500)">Apostar $500</button>
+                    <button class="btn" onclick="resetSimulator()" style="border-color: var(--neon-red); color: var(--neon-red);">Reiniciar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Test de Riesgo -->
+    <section id="test">
+        <div class="container">
+            <h2>¿Sos Vulnerable?</h2>
+            <p>Respondé este breve test para evaluar tu riesgo de desarrollar adicción al juego</p>
+            
+            <div class="test-container">
+                <div class="card">
+                    <div class="question">
+                        <h3>1. ¿Alguna vez apostaste dinero pensando que ibas a recuperar lo perdido?</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 1)">Nunca</div>
+                            <div class="option" onclick="selectOption(this, 1)">Rara vez</div>
+                            <div class="option" onclick="selectOption(this, 2)">Algunas veces</div>
+                            <div class="option" onclick="selectOption(this, 3)">Frecuentemente</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <h3>2. ¿Has mentido a familiares o amigos sobre cuánto apostás o cuánto perdés?</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 1)">Nunca</div>
+                            <div class="option" onclick="selectOption(this, 1)">Rara vez</div>
+                            <div class="option" onclick="selectOption(this, 2)">Algunas veces</div>
+                            <div class="option" onclick="selectOption(this, 3)">Frecuentemente</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <h3>3. ¿Alguna vez apostaste dinero que no tenías o que era para otras obligaciones?</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 1)">Nunca</div>
+                            <div class="option" onclick="selectOption(this, 1)">Rara vez</div>
+                            <div class="option" onclick="selectOption(this, 2)">Algunas veces</div>
+                            <div class="option" onclick="selectOption(this, 3)">Frecuentemente</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <h3>4. ¿El juego ha causado problemas en tus relaciones, trabajo o estudios?</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 1)">Nunca</div>
+                            <div class="option" onclick="selectOption(this, 1)">Rara vez</div>
+                            <div class="option" onclick="selectOption(this, 2)">Algunas veces</div>
+                            <div class="option" onclick="selectOption(this, 3)">Frecuentemente</div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn" onclick="calculateResults()" style="width: 100%;">Ver resultados</button>
+                    
+                    <div class="result" id="test-result">
+                        <div class="badge" id="result-badge">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 id="result-title">Tu resultado</h3>
+                        <p id="result-description"></p>
+                        
+                        <div class="advice" id="advice">
+                            <i class="fas fa-lightbulb"></i> <span id="advice-text"></span>
+                        </div>
+                        
+                        <div id="result-actions"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Video -->
+    <section id="video">
+        <div class="container">
+            <h2>La Historia Real</h2>
+            <p>Mirá nuestra producción que muestra la cruda realidad de las apuestas online</p>
+            
+            <div class="video-container">
+                <video controls poster="https://img.freepik.com/free-photo/dark-gambling-background-with-dices_23-2150337169.jpg">
+                    <source src="Noessuerte.mp4" type="video/mp4">
+                    Tu navegador no soporta video HTML5.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Recursos -->
+    <section id="recursos">
+        <div class="container">
+            <h2>Recursos de Ayuda</h2>
+            <p>Si vos o alguien que conocés tiene problemas con el juego, contactá estos servicios</p>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Línea de Ayuda</h3>
+                    <p><strong>0800-666-6006</strong><br>Asisencia luneas a viernes de 6 a 19hs</p>
+                </div>
+                
+                <div class="resource-card">
+                    <i class="fas fa-hospital"></i>
+                    <h3>Centros de Atención</h3>
+                    <p>Red de centros especializados en adicciones en todo el país</p>
+                    <p><a href="https://buenosaires.gob.ar/adicciones/red-de-adicciones">Ver centros cercanos</a></p>
+                </div>
+                
+                <div class="resource-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Grupos de Apoyo</h3>
+                    <p>Jugadores Anónimos - Reuniones virtuales y presenciales</p>
+                    <p><a href="https://www.argentina.gob.ar/servicio/recibir-atencion-ante-el-consumo-problematico-de-sustancias-psicoactivas">Encontrar reuniones</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Descargables -->
+    <section id="descargables">
+        <div class="container">
+            <h2>Recursos Descargables</h2>
+            <p>Materiales educativos para prevenir y concientizar sobre la ludopatía</p>
+            
+            <div class="downloads-grid">
+                <div class="download-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Guía para Padres</h3>
+                    <p>Señales de alerta y cómo ayudar a tus hijos</p>
+                    <a href="/Archivosdeayuda/GUIA-PARA-PADRES-Y-DOCENTES.pdf" class="btn">Descargar PDF</a>
+                </div>
+                
+                <div class="download-card">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>Señales de Alerta</h3>
+                    <p>Reconocer los síntomas de la adicción al juego</p>
+                    <a href="/Archivosdeayuda/manual_sobre_juego_patologico.pdf" class="btn">Descargar PDF</a>
+                </div>
+                
+                <div class="download-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Ayudar a un Amigo</h3>
+                    <p>Cómo abordar el tema y brindar apoyo</p>
+                    <a href="/Archivosdeayuda/ManualJuegoPatologico.pdf" class="btn">Descargar PDF</a>
+                </div>
+                
+                <div class="download-card">
+                    <i class="fas fa-road"></i>
+                    <h3>Camino a la Recuperación</h3>
+                    <p>Pasos para superar la adicción al juego</p>
+                    <a href="/Archivosdeayuda/guia-juego-compulsivo.pdf" class="btn">Descargar PDF</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <section id="creditos">
+        <div class="container">
+            <h2>Nosotros</h2>
+            <p>Un proyecto escolar para concientizar sobre los riesgos de las apuestas online</p>
+            
+<section id="creditos">
+        <div class="container">
+            <h2>Nosotros</h2>
+            <p>Un proyecto escolar para concientizar sobre los riesgos de las apuestas online</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo has-image">
+                        <img src="Perfiles/Joaquin.jpg" alt="Frederick Joaquín Riedel Padilla" onerror="this.parentElement.classList.remove('has-image')">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Frederick Joaquín Riedel Padilla</h3>
+                    <p>Diseño & Contenido <br>Banca de Betplay Experience <br>♠️</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo has-image">
+                        <img src="Perfiles/Thiago.jpg" alt="Thiago David Jacques Santamarina" onerror="this.parentElement.classList.remove('has-image')">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Thiago David Jacques Santamarina</h3>
+                    <p>Actor <br>Ludópata en potencia <br>♥️</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo has-image">
+                        <img src="Perfiles/Rocio.jpg" alt="Rocío Cáseres Barrera" onerror="this.parentElement.classList.remove('has-image')">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Rocío Cáseres Barrera</h3>
+                    <p>Investigación <br>(No quiso actuar) <br> ♦️</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo has-image">
+                        <img src="Perfiles/Gonzalo.jpg" alt="Gonzalo Campos Manco" onerror="this.parentElement.classList.remove('has-image')">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Gonzalo Campos Manco</h3>
+                    <p>Mandó los videos a las 21:30 de ayer <br>Aspirante a MikMoker <br>♣️</p>
+                </div>
+            </div>
+            
+            <div class="card" style="max-width: 800px; margin: 40px auto;">
+                <h3>Instituto Justo Jose de Urquiza</h3>
+                <p>Proyecto de Concientización al ludópata - 4° año Comunicaciones</p>
+                <p>Buenos Aires, Argentina - 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>     
+        <div><h3>Prof. María Sofía Genovese</h3></div>
+            <div class="final-quote">
+                "Lo que empieza como juego termina como ruina."
+            </div>
+            
+            <div class="copyright">
+                "No es suerte, es negocio" - Campaña de concientización sobre apuestas online
+            </div>
+        </div>
+        
+    </footer>
+
+    <script>
+        // Efecto de cartas flotantes
+        function createFloatingCards() {
+            const container = document.querySelector('.floating-cards');
+            const cards = ['♠', '♥', '♦', '♣', 'A', 'K', 'Q', 'J', '10'];
+            const colors = ['#ff00ff', '#00ffff', '#39ff14', '#fff01f'];
+            
+            for (let i = 0; i < 15; i++) {
+                const card = document.createElement('div');
+                card.className = 'floating-card';
+                card.textContent = cards[Math.floor(Math.random() * cards.length)];
+                card.style.left = `${Math.random() * 100}%`;
+                card.style.top = `${Math.random() * 100}%`;
+                card.style.color = colors[Math.floor(Math.random() * colors.length)];
+                card.style.transform = `rotate(${Math.random() * 360}deg)`;
+                card.style.fontSize = `${Math.random() * 2 + 2}rem`;
+                card.style.opacity = Math.random() * 0.3 + 0.1;
+                card.style.animation = `float${Math.ceil(Math.random() * 3)} ${Math.random() * 10 + 10}s infinite ease-in-out`;
+                
+                container.appendChild(card);
+            }
+            
+            // Agregar animaciones CSS dinámicamente
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float1 {
+                    0%, 100% { transform: translateY(0) rotate(0deg); }
+                    50% { transform: translateY(-20px) rotate(5deg); }
+                }
+                
+                @keyframes float2 {
+                    0%, 100% { transform: translateX(0) rotate(0deg); }
+                    50% { transform: translateX(20px) rotate(-5deg); }
+                }
+                
+                @keyframes float3 {
+                    0% { transform: translate(0, 0) rotate(0deg); }
+                    33% { transform: translate(10px, -15px) rotate(5deg); }
+                    66% { transform: translate(-10px, 10px) rotate(-5deg); }
+                    100% { transform: translate(0, 0) rotate(0deg); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Simulador de apuestas
+        let money = 1000;
+        let winStreak = 0;
+        let gameOverTriggered = false;
+        
+        function placeBet(amount) {
+            if (money <= 0 || gameOverTriggered) {
+                document.getElementById('simulator-message').textContent = "¡El juego ha terminado!";
+                return;
+            }
+            
+            if (amount > money) {
+                document.getElementById('simulator-message').textContent = "¡No tenés suficiente dinero para esa apuesta!";
+                return;
+            }
+            
+            // Probabilidad de ganar disminuye después de algunas victorias
+            let winProbability = 0.5;
+            if (winStreak > 2) {
+                winProbability = 0.2;
+            }
+            
+            const win = Math.random() < winProbability;
+            
+            if (win) {
+                money += amount;
+                winStreak++;
+                document.getElementById('simulator-message').textContent = `¡Ganaste $${amount}! ¡Seguí jugando!`;
+                document.getElementById('simulator-message').style.color = '#39ff14';
+            } else {
+                money -= amount;
+                winStreak = 0;
+                document.getElementById('simulator-message').textContent = `Perdiste $${amount}. ¡Probá de nuevo!`;
+                document.getElementById('simulator-message').style.color = '#ff073a';
+                
+                // Efecto de pantalla rota cuando pierde mucho
+                if (money < 300) {
+                    document.body.classList.add('glitch-effect');
+                    setTimeout(() => {
+                        document.body.classList.remove('glitch-effect');
+                    }, 300);
+                }
+            }
+            
+            // Actualizar dinero y barra de progreso
+            document.getElementById('money-amount').textContent = money;
+            document.getElementById('progress-bar').style.width = `${(money / 1000) * 100}%`;
+            
+            // Cuando se queda sin dinero
+            if (money <= 0 && !gameOverTriggered) {
+                gameOverTriggered = true;
+                document.getElementById('simulator-message').textContent = "¡Perdiste todo! Como el 90% de los apostadores reales.";
+                document.getElementById('simulator-message').style.color = '#ff073a';
+                
+                // Desactivar botones de apuesta
+                document.querySelectorAll('.bet-btn').forEach(btn => {
+                    btn.disabled = true;
+                });
+                
+                // Mostrar pantalla de game over
+                setTimeout(() => {
+                    document.getElementById('gameOver').classList.add('show');
+                }, 1000);
+            }
+        }
+        
+        function closeGameOver() {
+            document.getElementById('gameOver').classList.remove('show');
+        }
+        
+        function resetSimulator() {
+            money = 1000;
+            winStreak = 0;
+            gameOverTriggered = false;
+            document.getElementById('money-amount').textContent = money;
+            document.getElementById('progress-bar').style.width = '100%';
+            document.getElementById('simulator-message').textContent = "¡Empezá a apostar!";
+            document.getElementById('simulator-message').style.color = '#fff';
+            
+            // Reactivar botones
+            document.querySelectorAll('.bet-btn').forEach(btn => {
+                btn.disabled = false;
+            });
+        }
+
+        // Test de riesgo
+        let answers = [];
+        const adviceList = {
+            low: [
+                "Mantené siempre un presupuesto definido para el entretenimiento.",
+                "Recordá que las apuestas nunca deben ser una fuente de ingresos.",
+                "Si jugás, hacelo solo por diversión y con dinero que puedas permitirte perder."
+            ],
+            medium: [
+                "Establecé límites claros de tiempo y dinero antes de comenzar a jugar.",
+                "Considerá tomar períodos de descanso de las apuestas para evaluar tus hábitos.",
+                "Hablá con amigos o familiares sobre tus hábitos de juego para obtener perspectiva."
+            ],
+            high: [
+                "Buscá ayuda profesional cuanto antes. La ludopatía es tratable.",
+                "Considerá bloquear los sitios de apuestas en tus dispositivos.",
+                "Unite a grupos de apoyo como Jugadores Anónimos para compartir experiencias."
+            ]
+        };
+        
+        function selectOption(element, value) {
+            const options = element.parentElement.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            
+            const questionIndex = Array.from(element.closest('.card').querySelectorAll('.question')).indexOf(element.closest('.question'));
+            answers[questionIndex] = value;
+        }
+        
+        function calculateResults() {
+            if (answers.length < 4) {
+                alert('Por favor respondé todas las preguntas');
+                return;
+            }
+            
+            const total = answers.reduce((sum, val) => sum + val, 0);
+            const resultDiv = document.getElementById('test-result');
+            const badge = document.getElementById('result-badge');
+            const title = document.getElementById('result-title');
+            const description = document.getElementById('result-description');
+            const adviceText = document.getElementById('advice-text');
+            const actions = document.getElementById('result-actions');
+            
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            
+            // Obtener consejo aleatorio
+            const randomAdvice = arr => arr[Math.floor(Math.random() * arr.length)];
+            
+            if (total <= 4) {
+                resultDiv.classList.add('low');
+                badge.className = 'badge low';
+                badge.innerHTML = '<i class="fas fa-shield-alt"></i>';
+                title.textContent = "Riesgo Bajo";
+                description.textContent = "Actualmente mostrás pocas señales de riesgo de adicción al juego. Sin embargo, mantenete alerta y recordá que las apuestas online siempre favorecen a la casa.";
+                adviceText.textContent = randomAdvice(adviceList.low);
+                actions.innerHTML = '<p>Seguí informado sobre los riesgos y compartí esta campaña con amigos que puedan estar en riesgo.</p>';
+            } else if (total <= 8) {
+                resultDiv.classList.add('medium');
+                badge.className = 'badge medium';
+                badge.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
+                title.textContent = "Riesgo Moderado";
+                description.textContent = "Mostrás algunas conductas que podrían indicar riesgo de desarrollar problemas con el juego. Prestá atención a tus hábitos y considerá establecer límites claros.";
+                adviceText.textContent = randomAdvice(adviceList.medium);
+                actions.innerHTML = '<p>Recomendamos: <a href="#recursos">Informarse más</a> | <a href="#">Autoevaluación mensual</a> | <a href="#">Hablar con un consejero</a></p>';
+            } else {
+                resultDiv.classList.add('high');
+                badge.className = 'badge high';
+                badge.innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+                title.textContent = "Riesgo Alto";
+                description.textContent = "Tus respuestas indican patrones de comportamiento asociados con la adicción al juego. Es importante que busques ayuda profesional cuanto antes.";
+                adviceText.textContent = randomAdvice(adviceList.high);
+                actions.innerHTML = '<p><a href="#recursos" class="btn" style="background: #ff073a; border-color: #ff073a;">Buscar ayuda inmediata</a></p>';
+            }
+            
+            // Scroll al resultado
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Testimonios
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+        
+        function rotateTestimonials() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+        
+        // Rotar testimonios cada 8 segundos
+        setInterval(rotateTestimonials, 8000);
+
+        // Control de sonido
+        const soundToggle = document.getElementById('soundToggle');
+        const soundIcon = document.getElementById('soundIcon');
+        const bgSound = document.getElementById('bgSound');
+        
+        soundToggle.addEventListener('click', () => {
+            bgSound.muted = !bgSound.muted;
+            soundIcon.className = bgSound.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+        });
+
+        // Botón de salida difícil
+        function showExitMessage() {
+            const messages = [
+                "¿Estás seguro? ¡La próxima apuesta podría ser la ganadora!",
+                "Salir ahora es como rendirse...",
+                "¡Pero si recién empieza la diversión!",
+                "¿No querés intentarlo una vez más?",
+                "Quedate... ¡Hemos preparado bonos especiales para vos!",
+                "Si te vas ahora, perderás tu racha ganadora"
+            ];
+            
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            alert(randomMsg);
+        }
+
+        // Scroll header
+        function setupHeaderScroll() {
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // Efecto glitch para cuando pierde
+        function addGlitchEffect() {
+            const style = document.createElement('style');
+            style.textContent = `
+                .glitch-effect {
+                    animation: glitch 0.3s;
+                }
+                
+                @keyframes glitch {
+                    0% { transform: translateX(0); }
+                    20% { transform: translateX(-5px); }
+                    40% { transform: translateX(5px); }
+                    60% { transform: translateX(-5px); }
+                    80% { transform: translateX(5px); }
+                    100% { transform: translateX(0); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingCards();
+            addGlitchEffect();
+            setupHeaderScroll();
+            
+            // Reproducir sonido de fondo (muteado por defecto)
+            try {
+                bgSound.volume = 0.3;
+                bgSound.muted = true;
+                bgSound.play();
+            } catch (e) {
+                console.log("Autoplay bloqueado, el usuario debe interactuar primero");
+            }
+        });
+    </script>
